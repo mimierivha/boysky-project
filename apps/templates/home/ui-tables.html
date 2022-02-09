@@ -1,0 +1,229 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> Orders Tables</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Order ID
+                </th>
+                <th>
+                  Name
+                </th>
+                <th>
+                  PhoneNumber
+                </th>
+                <th>
+                  Order Details
+                </th>
+                <th>
+                  Quantity
+                </th>
+                <th class="text-center">
+                  Payment Status
+                </th>
+                <th>
+                  Delivery Status
+                </th>
+                <th>
+                  Total Price
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if orders %}
+              {% for order in orders %}
+              <tr>
+                <td>
+                  {{ order.id }}
+                </td>
+                <td>
+                  {{ order.name }}
+                </td>
+                <td>
+                  {{ order.phone_number}}
+                </td>
+                <td >
+                  {{ order.order_details }}
+                </td>
+                <td>
+                  {{ order.quantity }}
+                </td>
+                <td>
+                  {{ order.get_payment_status_display }}
+                </td>
+                <td>
+                  {{ order.get_delivery_status_display }}
+                </td>
+                <td>
+                  {{ order.amount_paid }}
+                </td>
+                <td>
+                  <div class="font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 col-xs-6">
+                    <div >
+                     <a href="/orders-detail/{{order.id}}"> <i class="tim-icons icon-notes "></i></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}            
+            </tbody>
+            {% endif %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- <div class="col-md-12">
+    <div class="card  card-plain">
+      <div class="card-header">
+        <h4 class="card-title"> Table on Plain Background</h4>
+        <p class="category"> Here is a subtitle for this table</p>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  City
+                </th>
+                <th class="text-center">
+                  Salary
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td class="text-center">
+                  $36,738
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Minerva Hooper
+                </td>
+                <td>
+                  Curaçao
+                </td>
+                <td>
+                  Sinaai-Waas
+                </td>
+                <td class="text-center">
+                  $23,789
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Sage Rodriguez
+                </td>
+                <td>
+                  Netherlands
+                </td>
+                <td>
+                  Baileux
+                </td>
+                <td class="text-center">
+                  $56,142
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Philip Chaney
+                </td>
+                <td>
+                  Korea, South
+                </td>
+                <td>
+                  Overland Park
+                </td>
+                <td class="text-center">
+                  $38,735
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Doris Greene
+                </td>
+                <td>
+                  Malawi
+                </td>
+                <td>
+                  Feldkirchen in Kärnten
+                </td>
+                <td class="text-center">
+                  $63,542
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Mason Porter
+                </td>
+                <td>
+                  Chile
+                </td>
+                <td>
+                  Gloucester
+                </td>
+                <td class="text-center">
+                  $78,615
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jon Porter
+                </td>
+                <td>
+                  Portugal
+                </td>
+                <td>
+                  Gloucester
+                </td>
+                <td class="text-center">
+                  $98,615
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

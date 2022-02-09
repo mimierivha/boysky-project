@@ -1,0 +1,106 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Typography {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header mb-5">
+        <h5 class="card-category">Order Detail</h5>
+        
+        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">Order Status</button>
+
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button"  data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" style="color: black ;">
+         </div>
+        <div class="form-group">
+            <select class="form-control" aria-label="Default select example" style="color: black ;">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <h3 class="card-title">Complete Order</h3>
+      </div>
+      {% if order %}
+      <div class="card-body">
+        <div class="typography-line">
+          <h5><span>Order Desciption</span>{{order.order_details}} </h5>
+        </div>
+        <div class="typography-line">
+          <h5><span>Quantity</span>{{order.id}} </h5>
+        </div>
+        <div class="typography-line">
+            <p><span>Total Price</span>
+              {{order.total_price}}
+              </p>
+          </div>
+        <div class="typography-line">
+          <h5><span>Payment Status</span> {{ order.get_payment_status_display }}</h5>
+        </div>
+        <div class="typography-line">
+            <h5><span>Username</span>{{order.name}} </h5>
+          </div>
+        <div class="typography-line">
+          <h5><span>Ecocash</span>{{order.phone_number}}</h5>
+        </div>
+        <div class="typography-line">
+            <h5><span>PhoneNumber</span>0772117309 </h5>
+          </div>
+
+        <div class="typography-line">
+          <h5><span>Branch</span> {{ order.company.name }}</h5>
+        </div>
+        <div class="typography-line">
+          <p><span>Delivery Address</span>
+           {{order.delivery_address}}
+          </p>
+        </div>
+        <div class="typography-line">
+          <span>Quote</span>
+          <blockquote>
+            <p class="blockquote blockquote-primary">
+              "I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
+              <br>
+              <br>
+              <small>
+                - Noaa
+              </small>
+            </p>
+          </blockquote>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
